@@ -11,6 +11,7 @@ Damage numbers UI similar to what is seen in roguelikes using object pooling for
 - Easily add support for showing off damage numbers
 - Change color of text based on the type of damage
 - Uses object pooling for better efficiency!
+- Supports both 2D and 3D!
 
 <img src="Promotion/DamageNumbersEx.gif">
 
