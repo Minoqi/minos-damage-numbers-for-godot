@@ -1,0 +1,15 @@
+## Code written by Minoqi @2024 under the MIT license
+## Documentation: https://github.com/Minoqi/minos-damage-numbers-for-godot
+
+extends Node2D
+
+## Variables
+@export var numbersPos : Marker2D
+
+
+func _on_normal_button_pressed():
+	MinosDamageNumbers2D.display_number(5, numbersPos.global_position)
+
+
+func _on_critical_button_pressed():
+	MinosDamageNumbers2D.display_number(5, numbersPos.global_position, MinosDamageNumbers2D.DamageType.CRITICAL_HIT)

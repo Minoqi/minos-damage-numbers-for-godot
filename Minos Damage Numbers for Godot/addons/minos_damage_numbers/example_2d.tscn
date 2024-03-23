@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7wvyvtdh082e"]
+
+[ext_resource type="Script" path="res://addons/minos_damage_numbers/Example2D.gd" id="1_rb36a"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tv6do"]
+
+[node name="example2D" type="Node2D" node_paths=PackedStringArray("numbersPos")]
+script = ExtResource("1_rb36a")
+numbersPos = NodePath("Marker2D")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="NormalButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -135.0
+offset_top = -57.0
+offset_right = -31.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 0
+text = " Show Label "
+
+[node name="CriticalButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -57.0
+offset_right = 108.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 0
+text = " Show Label Critical"
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(562, 362)
+scale = Vector2(75.785, 75.785)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(568, 470)
+scale = Vector2(75.785, 75.785)
+texture = SubResource("PlaceholderTexture2D_tv6do")
+
+[connection signal="pressed" from="CanvasLayer/NormalButton" to="." method="_on_normal_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/CriticalButton" to="." method="_on_critical_button_pressed"]

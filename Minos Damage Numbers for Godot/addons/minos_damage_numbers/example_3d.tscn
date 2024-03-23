@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvgo4q3yp2hwk"]
+
+[ext_resource type="Script" path="res://addons/minos_damage_numbers/Example3D.gd" id="1_ubht5"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_1kuhk"]
+
+[node name="example3D" type="Node3D" node_paths=PackedStringArray("numbersPos")]
+script = ExtResource("1_ubht5")
+numbersPos = NodePath("Player/Marker3D")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.645921, 2.53821)
+
+[node name="Player" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_1kuhk")
+
+[node name="Marker3D" type="Marker3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11482, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="NormalButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -135.0
+offset_top = -57.0
+offset_right = -31.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 0
+text = " Show Label "
+
+[node name="CriticalButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -57.0
+offset_right = 108.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 0
+text = " Show Label Critical"
+
+[connection signal="pressed" from="CanvasLayer/NormalButton" to="." method="_on_normal_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/CriticalButton" to="." method="_on_critical_button_pressed"]
